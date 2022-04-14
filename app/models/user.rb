@@ -9,4 +9,8 @@ class User < ApplicationRecord
   # validates :email,
   #           format: { with: /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/ },
   #           uniqueness: { case_sensitive: false }
+
+  def to_session
+    {id: id}
+  end
 end

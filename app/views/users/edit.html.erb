@@ -1,0 +1,56 @@
+<h1>Éditer le profil</h1>
+<% if @user.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+      <% @user.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">Éditer le profil</div>
+  <div class="panel-body">
+    <%= form_for @user,url: profil_path, class: 'form-horizontal' do |f| %>
+
+      <div class="form-group row mb-1">
+        <%= f.label :username, "Nom d'utilisateur", class:"col-md-4 control-label col-form-label" %>
+        <div class="col-md-6">
+          <%= f.text_field :username, class:'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group row mb-1">
+        <%= f.label :email, "Email", class:"col-md-4 control-label col-form-label" %>
+        <div class="col-md-6">
+          <%= f.email_field :email, class:'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group row mb-1">
+        <%= f.label :password, "Mot de passe", class:"col-md-4 control-label col-form-label" %>
+        <div class="col-md-6">
+          <%= f.password_field :password, class:'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group row mb-1">
+        <%= f.label :password_confirmation, "Confirmer le mot de passe", class:"col-md-4 control-label col-form-label" %>
+        <div class="col-md-6">
+          <%= f.password_field :password_confirmation, class:'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-6 col-md-offset-4">
+          <button type="submit" class="btn btn-primary">
+            S'inscrire
+          </button>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
